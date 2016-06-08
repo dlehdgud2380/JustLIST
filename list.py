@@ -1,9 +1,9 @@
 #list 프로그램
 import random
 
-powermethod = input("프로그램을 실행하시겠습니까?(Y/N)=> ") #무한반복을 위한 구실에 불가하다...
+powermethod = str.lower(input("프로그램을 실행하시겠습니까?(Y/N)=> ")) #무한반복을 위한 구실에 불가하다...
 
-while powermethod == "Y" or powermethod == "y" : #프로그램을 전체 반복
+while powermethod == "y" : #프로그램을 전체 반복
 
     print("\n\n\n\n\n\n\n\n\n\n\n\n\nJustLIST 0.1 by scoutlee\n\n")
 
@@ -52,74 +52,91 @@ while powermethod == "Y" or powermethod == "y" : #프로그램을 전체 반복
 
     while list == list:
 
-        work_menu = int(input("\nLIST를 어떻게 하시겠습니까?\n(1)item값 추가\n(2)item값 수정\n(3)LIST 자른 결과값 출력\n(4)item값 삭제\n(5)LIST에서 item찾기\n(6)LIST 정렬하기\n(7)LIST값 상태\n(8)Just List 정보\n(9)Just LIST 새로시작(LIST가 초기화 됩니다!!)\n(10)Just LIST 종료\n번호입력: "))
+        work_menu = int(input("\nLIST를 어떻게 하시겠습니까?\n(1)item값 추가\n(2)item값 수정\n(3)LIST 자른 결과값 출력\n(4)item값 삭제\n(5)LIST에서 item찾기\n(6)LIST 정렬하기\n(7)LIST값 상태\n(8)JustLIST 정보\n(9)JustLIST 새로시작(LIST가 초기화 됩니다!!)\n(10)JustLIST 종료\n번호입력: "))
 
         if work_menu == 1:
 
-            append_menu = int(input("(1)1개의 item 추가\n(2)다중 item 추가\n번호입력: "))
+            append_menu = int(input("\n(1)1개의 item 추가\n(2)다중 item 추가\n번호입력: "))
 
             if append_menu == 1:
 
-                append_mod = int(input("int모드와 string모드중 선택해주세요.\n(1)int모드(순수 숫자만 입력할때, 단어 및 모음 입력등등은 지원 안됨), (2)string모드(모두 입력 가능)\n번호입력: "))
+                append_mod = int(input("\nint모드와 string모드중 선택해주세요.\n(1)int모드(순수 숫자만 입력할때, 단어 및 모음 입력등등은 지원 안됨), (2)string모드(모두 입력 가능)\n번호입력: "))
 
                 if append_mod == 1:
-                    list.insert( int(input("몇번째 자리에 넣고 싶은 가요?(1,2,3,4,5중 택1): "))-1 ,int(input("수정할 item값을 입력: ")) )
+                    list.insert( int(input("\n몇번째 자리에 넣고 싶은 가요?(1,2,3,4,5중 택1): "))-1 ,int(input("\n추가할 item값을 입력: ")) )
 
-                if append_mod == 2:
-                    list.insert( int(input("몇번째 자리에 넣고 싶은 가요?(1,2,3,4,5중 택1): "))-1 , input("수정할 item값을 입력: "))
+                elif append_mod == 2:
+                    list.insert( int(input("\n몇번째 자리에 넣고 싶은 가요?(1,2,3,4,5중 택1): "))-1 , input("\n추가할 item값을 입력: "))
 
-                print ("수정된 list는 %s입니다." %list)
+                print ("\n수정된 list는 %s입니다." %list)
 
 
             elif append_menu == 2:
 
-                extend_mod = int(input("int모드와 string모드중 선택해주세요.\n(1)int모드(순수 숫자만 입력할때, 단어 및 모음 입력등등은 지원 안됨), (2)string모드(모두 입력 가능)\n번호입력: "))
+                extend_mod = int(input("\nint모드와 string모드중 선택해주세요.\n(1)int모드(순수 숫자만 입력할때, 단어 및 모음 입력등등은 지원 안됨), (2)string모드(모두 입력 가능)\n번호입력: "))
 
                 if extend_mod == 1:
-                    list.extend(int(input("추가할 item들을 입력하시요(,와 띄움없이): ")))
+
+                    ExtendItem = []
+
+                    print()
+
+                    for i in range (1, 4):
+
+                        TypeItem = int(input("(%d)아이템값을 입력해주세요: " %i))
+                        ExtendItem.append(TypeItem)
+
+                    list.extend(ExtendItem)
 
                 elif extend_mod == 2:
-                    list.extend(input("추가할 item들을 입력하시요(,와 띄움없이): "))
+                    list.extend(input("\n추가할 item들을 입력하시요(,와 띄움없이): "))
 
-                print("수정된 list는 %s입니다." %list)
+                print("\n수정된 list는 %s입니다." %list)
 
         elif work_menu == 2:
 
-            edit_mod = int(input("int모드와 string모드중 선택해주세요.\n(1)int모드(순수 숫자만 입력할때, 단어 및 모음 입력등등은 지원 안됨), (2)string모드(모두 입력 가능)\n번호입력:"))
+            edit_mod = int(input("\nint모드와 string모드중 선택해주세요.\n(1)int모드(순수 숫자만 입력할때, 단어 및 모음 입력등등은 지원 안됨), (2)string모드(모두 입력 가능)\n번호입력:"))
 
             if edit_mod == 1:
                 print("\n%s\n" %list)
-                list[int(input("몇번째의 item을 수정하고 싶으신가요?(1,2,3,4,5중 택1): "))-1] = int(input("넣을 item값을 입력하시요: "))
+                list[int(input("\n몇번째의 item을 수정하고 싶으신가요?(1,2,3,4,5중 택1): "))-1] = int(input("넣을 item값을 입력하시요: "))
 
             elif edit_mod == 2:
                 print("\n%s\n" %list)
-                list[int(input("몇번째의 item을 수정하고 싶으신가요?(1,2,3,4,5중 택1): "))-1] = input("넣을 item값을 입력하시요: ")
+                list[int(input("\n몇번째의 item을 수정하고 싶으신가요?(1,2,3,4,5중 택1): "))-1] = input("넣을 item값을 입력하시요: ")
 
-            print("수정된 list는 %s입니다." %list)
+            print("\n수정된 list는 %s입니다." %list)
 
         elif work_menu == 3:
 
             print("\n*LIST 자르기를 도와드리겠습니다.*\n")
             print("\n%s\n" %list)
-            start_value = int(input("몇번째 item부터(1,2,3,4,5중 택1): "))-1
-            last_value = int(input("몇번째 item까지(1,2,3,4,5중 택1): "))
-            print( "LIST를 자른 결과는 %s 입니다."%list[start_value:last_value ])
+            start_value = int(input("\n몇번째 item부터(1,2,3,4,5중 택1): "))-1
+            last_value = int(input("\n몇번째 item까지(1,2,3,4,5중 택1): "))
+            print( "\nLIST를 자른 결과는 %s 입니다."%list[start_value:last_value ])
 
         elif work_menu == 4:
 
-            del_menu = int(input("LIST 삭제 방법을 선택하세요:\n(1)지정 item값 삭제\n(2)인덱스 해당 아이템 삭제\n번호입력: "))
+            del_menu = int(input("\nLIST 삭제 방법을 선택하세요:\n(1)지정 item값 삭제\n(2)인덱스 해당 아이템 삭제\n번호입력: "))
 
             if del_menu == 1:
 
                 print("\n%s\n" %list)
-                list.remove(input("삭제할 item값을 입력하시요: "))
+                deleteitem = input("삭제할 item값을 입력하시요: ")
+
+                if deleteitem in list:
+                    list.remove(deleteitem)
+
+                elif deleteitem not in list:
+                    int_deleteitem = int(deleteitem)
+                    list.remove(int_deleteitem)
 
             elif del_menu == 2:
 
                 print("\n%s\n" %list)
-                del list[int(input("몇번째 값을 삭제 하시겠습니까?(1,2,3,4,5중 택1): "))-1]
+                del list[int(input("\n몇번째 값을 삭제 하시겠습니까?(1,2,3,4,5중 택1): "))-1]
 
-            print("수정된 list는 %s입니다." %list)
+            print("\n수정된 list는 %s입니다." %list)
 
         elif work_menu == 5:
 
@@ -145,7 +162,7 @@ while powermethod == "Y" or powermethod == "y" : #프로그램을 전체 반복
                 print("LIST의 %d번째에 있습니다." %locate_findITEM)
 
             else:
-                print("찾으시는 item이 LIST에 없습니다.")
+                print("\n찾으시는 item이 LIST에 없습니다.")
 
         elif work_menu == 6:
 
@@ -171,11 +188,3 @@ while powermethod == "Y" or powermethod == "y" : #프로그램을 전체 반복
         print("\n\n사용해주셔서 감사합니다. \n피드백: dlehdgud2380@kookmin.ac.kr ")
 
         break
-
-
-
-
-
-
-
-
