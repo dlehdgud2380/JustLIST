@@ -2,8 +2,7 @@
 그냥 예제보고 하면서 공부하기엔 정말 재미도 없고해서 '4.1 Structured types 1.pptx' 즉 리스트와 관련된 예제란 예제란 예제는 갈아넣어서 아주 기초적인 프로그램을 만들어보았다. 
 이름하여 'Just LIST'
 
-**※ ONLY WORKING Python 3.x! not guarantee work on Python 2.x!**
-**(Python 3.x에서만 작동합니다. Python 2.x에선 작동을 보장하지 않습니다!)**
+**※Python 3.x에서만 작동합니다. Python 2.x에선 작동을 보장하지 않습니다!**
 
 ##기능:
 1. item값 추가
